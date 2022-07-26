@@ -1,0 +1,23 @@
+.nav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img{
+    width: 48px;
+    height: 47px;
+}
+
+.menu{
+    display:flex;
+    justify-content: space-between;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    gap:20px;
+    li{
+    }
+}
