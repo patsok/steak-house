@@ -45,11 +45,8 @@ var swiper = new Swiper(".header-swiper", {
 
   function showNav(){
     sidebar.classList.remove('hidden');
-    closeButton.classList.remove('hidden');
   }
 
   function closeNav(){
     sidebar.classList.add('hidden');
-    closeButton.classList.add('hidden');
-
   }
