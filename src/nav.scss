@@ -1,0 +1,144 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 81px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 21px rgba($primary-color, 0.0520088);
+    padding: 0 9%;
+    z-index: 10;
+    position: relative;
+
+    .menu-left, .menu-right {
+        display: flex;
+        align-items: center;
+        gap:50px;
+
+        ul{
+            list-style: none;
+            display: flex;
+    
+            li a{
+                text-decoration: none;
+                color: #000000;
+            }
+        }
+    }
+
+    @mixin user-interaction($color){
+        padding: 3px 10px 0px 10px;
+        border-bottom: $color 3px solid;
+    }
+
+    .menu-left{
+        .logo{
+            display: flex;
+            align-items: center;
+
+            img{
+                width: 48px;
+                height: 47px;
+            }
+        }
+        ul{
+            gap: 30px;       
+
+            li{
+                padding: 3px 10px;
+            
+                &:hover{
+                    @include user-interaction($red-hover)
+                }
+                &:active{
+                    @include user-interaction($red-active)
+                }
+            }
+        }
+    }
+
+    .menu-right{
+        ul{
+            gap: 10px;
+        }
+
+        .nav-button{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 97px;
+            height: 57px;
+            line-height: 24px;
+            img{
+                height:16px;
+                width: 18px;
+            }
+            &.big{
+                background-color: $red-primary;
+                color: $background;
+                @extend %user-interaction;
+            }
+            &:hover{
+                @include user-interaction($red-hover)
+            }
+            &:active{
+                @include user-interaction($red-active)
+            }
+        }
+    }
+    .sidebar{
+        z-index: 10;
+        position: fixed;
+        background-color: $background;
+        padding: 50px 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        top: 0;
+        left: 0;
+        font-size: 20px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-top: 20px;
+            list-style: none;
+
+            a{
+                text-decoration: none;
+                color: #000000;
+
+                li{
+                    padding: 10px 0 10px 50px;
+                    border-bottom: 1px solid rgba($primary-color,0.05);
+
+                    @mixin user-interaction ($color, $border-size) {
+                        border-left: $color $border-size solid;
+                        padding-left: calc(50px - $border-size);
+                    }
+            
+                    &:hover{
+                        @include user-interaction($red-hover, 10px);
+                    }
+                    &:active{
+                        @include user-interaction($red-active, 10px);
+                    }
+                }
+            }
+        }
+
+        .close-button{
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.nav .hidden{
+    display:none;
+}

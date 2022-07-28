@@ -1,0 +1,80 @@
+
+.banners-container{
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 30px 50px 30px; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    .banner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size:cover;
+        height: 415px;
+        color:$background;
+        border-radius: 7px;
+
+        .banner-content{
+            padding: 0 clamp(30px,7vw,130px);
+            max-width: 600px;
+
+            h2{
+                font-family: 'Sofia Pro';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 35px;
+                line-height: 32px;
+                padding-bottom: 30px;
+            }
+
+            p{
+                font-family: 'Sofia Pro';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+                padding-bottom: 32px;
+            }
+
+            p ~ a{
+                @extend %button-design;
+            }
+            
+        }
+    }
+
+    .banner-left{
+        background-image: url(./images/banners/dana-devolk-x2cNcfz_xXU-unsplash@2x.png);
+        
+        .highlight{
+            @include highlight($primary-color);
+        }
+    }
+
+    .banner-right{
+        background-image: url(./images/banners/aplikacja@2x.png);
+       
+        .highlight{
+            @include highlight($red-primary);
+        }
+
+        p{
+            padding-bottom: 10px;
+        }
+
+        .badges{
+            display: flex;
+            gap:10px;
+            padding-bottom: 10px;
+            
+                a:hover{
+                    opacity: .8;
+                }
+                a:active{
+                    opacity: .5;
+                }
+        }
+    }
+}
