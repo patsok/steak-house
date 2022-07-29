@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@font-face {
+    font-family: "Sofia Pro";
+    src: url("../fonts/sofiapro-light.otf") format("opentype"),
+}
+
+$red-primary: #920303;
+$red-hover: #b92e2e;
+$red-active: #690303;
+$background: #ffffff;
+$primary-color: #000000;
+
+$font-stack: "Sofia Pro", Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+$secondary-font-stack: Rubik ,Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+@mixin font-custom($font: $font-stack, $weight, $size, $height) {
+    font-family: $font;
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+}
+
+@mixin highlight($background-color:$primary-color) {
+    background-color: $background-color;
+    color: $background;
+    padding: 1% 1% 0 1%;
+    font-weight: 600;
+    font-family: $font-stack;
+}
+
+@mixin user-interaction($color){
+    padding: 3px 10px 0px 10px;
+    border-bottom: $color 3px solid;
+}
+
+@mixin user-interaction-border ($color, $border-size) {
+    border-left: $color $border-size solid;
+    padding-left: calc(50px - $border-size);
+}
+
+%button-design{
+    color: $background;
+    text-decoration: none;
+    border:none;
+    border-radius: 10px;
+    background-color: $red-primary;
+    text-align: center;
+    padding: 17px 55px;
+    @include font-custom($font-stack, 400, 14.4px, 14px);
+    @extend %user-interaction
+}
+
+%user-interaction{
+    &:hover{
+        background-color: $red-hover;
+    }
+    &:active{
+        background-color: $red-active;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    @include font-custom($font-stack, 400, 14px, 32px);
+}
+
+@import "./nav";
+@import "./header";
+@import "./logos";
+@import "./banners";

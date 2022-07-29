@@ -2,15 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    mode: 'development',
+    // mode: 'development',
+    mode: 'production',
     entry: {
-      main: './src/main.js',
-      swiper: './src/swiper.js'
+      main: './src/js/main.js',
+      swiper: './src/js/swiper.js'
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        static: './dist',
-    },
+    // devtool: 'inline-source-map',
+    // devServer: {
+    //     static: './dist',
+    // },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -19,6 +20,10 @@ module.exports = {
     optimization: {
       runtimeChunk: 'single',
     },
+    performance: {
+      maxEntrypointSize: 1024000,
+      maxAssetSize: 1024000
+  },
     plugins: [
         new HtmlWebpackPlugin({
           template: "./src/index.html"

@@ -1,4 +1,3 @@
-
 .banners-container{
     display: grid;
     justify-content: center;
@@ -21,21 +20,14 @@
             max-width: 600px;
 
             h2{
-                font-family: 'Sofia Pro';
-                font-style: normal;
-                font-weight: 700;
-                font-size: 35px;
-                line-height: 32px;
+                @include font-custom($font-stack,700,35px,32px);
                 padding-bottom: 30px;
             }
 
             p{
-                font-family: 'Sofia Pro';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                @include font-custom($secondary-font-stack,400,20px,32px);
                 padding-bottom: 32px;
+                max-width: 23ch;
             }
 
             p ~ a{
@@ -46,7 +38,7 @@
     }
 
     .banner-left{
-        background-image: url(./images/banners/dana-devolk-x2cNcfz_xXU-unsplash@2x.png);
+        background-image: url(../images/banners/banner-left.png);
         
         .highlight{
             @include highlight($primary-color);
@@ -54,14 +46,15 @@
     }
 
     .banner-right{
-        background-image: url(./images/banners/aplikacja@2x.png);
+        background-image: url(../images/banners/aplikacja.png);
        
         .highlight{
             @include highlight($red-primary);
         }
 
-        p{
+        .banner-content p{
             padding-bottom: 10px;
+            max-width: 27ch;
         }
 
         .badges{
